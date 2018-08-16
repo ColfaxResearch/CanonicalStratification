@@ -1,5 +1,4 @@
 """ Class for containing the simplicial complex
-(c) 2018 Colfax Research 
 
 Distributed under MIT License
 

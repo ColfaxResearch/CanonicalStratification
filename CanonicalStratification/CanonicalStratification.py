@@ -130,10 +130,11 @@ def stratify(sc):
       # We use stratum assignment for 'visited' check
       if sm.getStratum(simplex) is None:
         cofaces = _getCofaces(sm, simplex, top_dim)
-        # Check if the simplex is the generic strata
+        # Check if the simplex is the {top_dim}-strata
         if len(cofaces) == 2:
           # Create a new strata for the connected component search
           stratum = sm.createStratum(top_dim)
+          # Assign the simplex and the cofaces to the strata
           sm._setStratumOfSimplex(simplex, stratum)
           sm._setStratumOfSimplex(cofaces[0], stratum)
           sm._setStratumOfSimplex(cofaces[1], stratum)
@@ -150,7 +151,7 @@ def stratify(sc):
 There is likely a large connected component with more than 999 elements. 
 Increasing the default recursion limit of 999 with sys.setrecursionlimit(limit) is necessary for this complex.''')
 
-    # Add all unassigned c0_simplex to the generic strata
+    # Add all unassigned c0_simplex to the {top_dim}-strata
     for simplex in c0_simplices:
       # We use stratum assignment for 'visited' check
       if sm.getStratum(simplex) is None:
@@ -166,13 +167,13 @@ Increasing the default recursion limit of 999 with sys.setrecursionlimit(limit) 
      # we use stratum assignment for 'visited' check
     if sm.getStratum(simplex) is None:
       cofaces = _getCofaces(sm, simplex, stratum.top_dim)
-      # Check if the simplex is the generic strata
+      # Check if the simplex is in the {top_dim}-strata
       if len(cofaces) == 2:
-        # add the simplex to the connected component
+        # add the simplex and cofaces to the connected component
         sm._setStratumOfSimplex(simplex, stratum)
         sm._setStratumOfSimplex(cofaces[0], stratum)
         sm._setStratumOfSimplex(cofaces[1], stratum)
-        # Begin connected component search
+        # Continue connected component search
         for neighbor in cofaces[0].faces:
           _connectedComponentSearch(sm, stratum, neighbor)
         for neighbor in cofaces[1].faces:
@@ -187,9 +188,9 @@ Increasing the default recursion limit of 999 with sys.setrecursionlimit(limit) 
     Ref 5.3.2
     '''
     for simplex in c2_simplices:
-      # We use stratum assignment for 'visited' check
+      # Assigned simplex is in a previous strata, so we ignore those.
       if sm.getStratum(simplex) is None:
-        # New, isolated stratum for the simplex
+        # Check if the cofaces all lie in the same {top_dim}-strata
         stratum = _uniqueStratumAmongCofaces(sm, simplex, top_dim)
         if stratum is not None:
           sm._setStratumOfSimplex(simplex, stratum)
@@ -201,7 +202,10 @@ Increasing the default recursion limit of 999 with sys.setrecursionlimit(limit) 
     Ref 5.2.1
     '''
     cofaces =  _getCofaces(sm, simplex, top_dim)
+    # Converting list to set leaves unique elements
     stratum_set = set([sm.getStratum(c) for c in cofaces])
+
+    # We only return a stratum if there is a single unique stratum
     if len(stratum_set) == 1:
       return stratum_set.pop()
     else:
@@ -217,12 +221,13 @@ Increasing the default recursion limit of 999 with sys.setrecursionlimit(limit) 
     Ref 5.3.3
     '''
     for simplex in c3_simplices:
-      # We use stratum assignment for 'visited' check
+      # Assigned simplex is in a previous strata, so we ignore those.
       if sm.getStratum(simplex) is None:
-        # New, isolated stratum for the simplex
+        # Check if the cofaces all lie in the same {top_dim}-strata
         stratum = _uniqueStratumAmongCofaces(sm, simplex, top_dim)
         if stratum is not None:
           sl = _getSmallLink(sm, simplex, top_dim)
+          # Euler Characteristic (V-E+F)
           if (len(sl[0])-len(sl[1])+len(sl[2])) == 2:
             sm._setStratumOfSimplex(simplex, stratum)
 
@@ -247,6 +252,7 @@ Increasing the default recursion limit of 999 with sys.setrecursionlimit(limit) 
 
   def _addCofaceToSL(sl, sm, simplex, sl_dim, top_dim):
     for c in _getCofaces(sm, simplex, top_dim):
+      # if the coface is not already in sl, add and continue recursion
       if c not in sl[sl_dim]:
         sl[sl_dim].append(c)
         _addCofaceToSL(sl, sm, c, sl_dim+1, top_dim)

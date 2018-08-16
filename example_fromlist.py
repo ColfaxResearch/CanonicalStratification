@@ -1,3 +1,11 @@
+""" Example script for loading simplices
+from a file.
+ 
+Distributed under MIT License
+
+Authors: Ryo Asai (ryo@colfax-intl.com)
+         Jay Shah (jshah3@nd.edu)
+"""
 import sys
 from CanonicalStratification import *
 
