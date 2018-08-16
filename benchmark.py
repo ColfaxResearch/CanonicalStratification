@@ -9,7 +9,6 @@ Authors: Ryo Asai (ryo@colfax-intl.com)
 """
 import sys
 from CanonicalStratification.CanonicalStratification import *
-from CanonicalStratification.Utils import *
 
 from scipy.spatial import Delaunay
 import numpy as np

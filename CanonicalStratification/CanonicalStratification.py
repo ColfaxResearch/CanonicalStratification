@@ -241,7 +241,7 @@ Increasing the default recursion limit of 999 with sys.setrecursionlimit(limit) 
     '''
 
     # Small link array. Organized by dimension
-    sl = [[] for i in range(top_dim-simplex.top_dim)]
+    sl = [[] for i in range(top_dim-simplex.dim)]
     _addCofaceToSL(sl, sm, simplex, 0, top_dim)
     return sl
 
