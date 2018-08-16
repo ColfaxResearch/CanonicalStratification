@@ -1,6 +1,5 @@
 import sys
-from CanonicalStratification.CanonicalStratification import *
-from CanonicalStratification.Utils import *
+from CanonicalStratification import *
 
 simplices=[[0,1,3],[0,2,3],[1,3,5],[2,3,4],[2,4,6],[3,4,5],[4,5,7],[4,6,7],[3,4,8]]
 

@@ -1,15 +1,13 @@
-""" Script for bencmarking computational
-performance of stratification algorith for
-the 2-sphere and 3-ball.
-
+""" Example script for loading simplices
+from a file.
+ 
 Distributed under MIT License
 
 Authors: Ryo Asai (ryo@colfax-intl.com)
          Jay Shah (jshah3@nd.edu)
 """
 import sys
-from CanonicalStratification.CanonicalStratification import *
-from CanonicalStratification.Utils import *
+from CanonicalStratification import *
 
 sys.setrecursionlimit(1000000)
 
