@@ -6,7 +6,6 @@ Distributed under MIT License
 Authors: Ryo Asai (ryo@colfax-intl.com)
          Jay Shah (jshah3@nd.edu)
 """
-import numpy as np
 import itertools
 
 class SimplicialComplex:

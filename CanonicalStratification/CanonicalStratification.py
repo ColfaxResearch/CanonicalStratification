@@ -7,7 +7,7 @@ Authors: Ryo Asai (ryo@colfax-intl.com)
 """
 import time
 import sys
-from CanonicalStratification.SimplicialComplex import *
+from .SimplicialComplex import *
 
 class StrataMap:
   ''' Class containing map | simplex -> strata
