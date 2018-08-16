@@ -1,0 +1,22 @@
+""" Script for bencmarking computational
+performance of stratification algorith for
+the 2-sphere and 3-ball.
+
+Distributed under MIT License
+
+Authors: Ryo Asai (ryo@colfax-intl.com)
+         Jay Shah (jshah3@nd.edu)
+"""
+import sys
+from CanonicalStratification.CanonicalStratification import *
+from CanonicalStratification.Utils import *
+
+sys.setrecursionlimit(1000000)
+
+sc = SimplicialComplex.fromFile("genus-50-surface.txt")
+
+sm = stratify(sc)
+print("Stratification found %d strata" % (sm.strata_count,))
+test_simplex = [0,522,1408]
+stratum =sm.getStratum(test_simplex)
+print("Simplex %s is in stratum %d (dimension %d)" % (test_simplex, stratum.index, stratum.top_dim))
