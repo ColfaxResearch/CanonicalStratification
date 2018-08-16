@@ -1,5 +1,6 @@
 """ Stratification workload and the map of simplex -> strata
 
+(c) Colfax Research
 Distributed under MIT License
 
 Authors: Ryo Asai (ryo@colfax-intl.com)

@@ -2,6 +2,7 @@
 performance of stratification algorith for
 the 2-sphere and 3-ball.
 
+(c) Colfax Research
 Distributed under MIT License
 
 Authors: Ryo Asai (ryo@colfax-intl.com)

@@ -1,3 +1,10 @@
+"""
+(c) Colfax Research
+Distributed under MIT License
+
+Authors: Ryo Asai (ryo@colfax-intl.com)
+         Jay Shah (jshah3@nd.edu)
+"""
 from distutils.core import setup
 
 setup(

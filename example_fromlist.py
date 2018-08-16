@@ -1,6 +1,7 @@
 """ Example script for loading simplices
 from a file.
  
+(c) Colfax Research
 Distributed under MIT License
 
 Authors: Ryo Asai (ryo@colfax-intl.com)

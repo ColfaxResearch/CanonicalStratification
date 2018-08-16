@@ -1,5 +1,6 @@
 """ Class for containing the simplicial complex
 
+(c) Colfax Research
 Distributed under MIT License
 
 Authors: Ryo Asai (ryo@colfax-intl.com)
