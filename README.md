@@ -57,8 +57,10 @@ SimplicialComplex object can be loaded from a csv file.
 Each line in the file corresponds to a simplex, and contain the vertices of the simplex.
 For example, a file with the following entries specifies two simplicies \[0,1,2\] and \[0,3\]
 
-`0,1,2`
-`0,3`
+```
+0,1,2
+0,3
+```
 
 And a complex can be construced by.
 
