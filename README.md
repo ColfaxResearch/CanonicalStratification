@@ -13,12 +13,12 @@ To install:
 
 # Usage
 
-## TL;DR
+### TL;DR
 
 There are two example files, `example_fromfile.py` and `example_fromlist.py` to try the stratification on a pre-made simplicial complex.
 Also, `benchmark.py` will let you try the stratification on 2-sphere and 3-ball with an arbitrary number of vertices.
 
-## More detailed explanation
+### More detailed explanation
 
 You must first create a simplicial complex using the SimplicialComplex object.
 This can be done through a python list or a file, and is discussed later.
@@ -34,7 +34,7 @@ Implied simplices of a simplex are all subsets of the simplex; mathematically th
 For example, a simplex [0,1,2] implies simplices \[0,1\],\[0,2\],\[1,2\],\[0\],\[1\] and \[2\]. 
 These are added automatically. 
 
-## Loading from lists
+#### Loading from lists
 
 SimplicialComplex object can be loaded from an iterable of lists.
 Each list in the iterable corresponds to a simplex, and contain the vertices of the simplex.
@@ -51,7 +51,7 @@ Note that this complex will have 9 simplices instead of 2 because of the implied
 Aditionally, the function takes any iterable of lists as an input. 
 So, for example, you can input a generator of lists to this function as well.
 
-## Loading from file
+#### Loading from file
 
 SimplicialComplex object can be loaded from a csv file.
 Each line in the file corresponds to a simplex, and contain the vertices of the simplex.
