@@ -1,7 +1,7 @@
 # CanonicalStratification
 
 Library for canonical stratification of simplicial complexes.
-This code is a companion to the publication "Algorithmic Canonical Stratifications of Simplicial Complexes".
+This code is a companion to the publication "Algorithmic Canonical Stratifications of Simplicial Complexes" (https://arxiv.org/abs/1808.06568).
 
 # Installation
 
